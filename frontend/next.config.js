@@ -2,12 +2,16 @@
 const nextConfig = {
   output: 'standalone',
   async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'http://localhost:8080/api/:path*',
-      },
-    ];
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          source: '/api/:path*',
+          destination: 'http://localhost:8080/api/:path*',
+        },
+      ];
+    }
+    // In production (Vercel), API is at the same domain via Python serverless functions
+    return [];
   },
 };
 
