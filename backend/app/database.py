@@ -1,0 +1,34 @@
+"""Database setup with SQLAlchemy."""
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
+from app.config import settings
+
+engine = create_engine(
+    settings.DATABASE_URL,
+    connect_args={"check_same_thread": False},  # Needed for SQLite
+    echo=settings.DEBUG,
+)
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+
+
+def get_db():
+    """Dependency that provides a database session."""
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+def init_db():
+    """Create all tables."""
+    # Import all models so they register with SQLAlchemy
+    from app.models import (  # noqa: F401
+        Competitor, Source, IntelligenceSignal, Report,
+        ChatSession, ChatMessage, TimelineEvent, UpdateLog,
+    )
+    from app.models import Workspace, Document, Intelligence, Memory, Contradiction, QueryLog  # noqa: F401
+    Base.metadata.create_all(bind=engine)
