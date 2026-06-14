@@ -4,9 +4,14 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from app.config import settings
 
+# Handle both SQLite and PostgreSQL
+_db_connect_args = {}
+if settings.DATABASE_URL.startswith("sqlite"):
+    _db_connect_args["check_same_thread"] = False
+
 engine = create_engine(
     settings.DATABASE_URL,
-    connect_args={"check_same_thread": False},  # Needed for SQLite
+    connect_args=_db_connect_args if _db_connect_args else {},
     echo=settings.DEBUG,
 )
 

@@ -1,7 +1,7 @@
 # Environment
 .env
 .env.local
-*.env.local
+.env*.local
 
 # Python
 __pycache__/
@@ -25,15 +25,15 @@ out/
 .vscode/
 .idea/
 *.swp
+*.swo
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Uploads (but keep the directory)
+# Uploads
 backend/uploads/*
 !backend/uploads/.gitkeep
 
 # Logs
 *.log
-/tmp/

@@ -1,72 +1,36 @@
-# InsightFlow 🧠⚡
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-**An AI Competitive Intelligence & Knowledge Evolution Engine that remembers how strategic understanding evolves over time.**
+## Getting Started
 
-> "Companies don't suffer from lack of information. They suffer from loss of organizational memory. InsightFlow preserves not just facts, but the evolution of reasoning itself."
+First, run the development server:
 
-## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.10+
-- Node.js 18+
-- A Groq API key (set in `backend/.env`)
-
-### 1. Backend Setup
 ```bash
-cd backend
-pip install -r requirements.txt
-python run.py
-# Runs on http://localhost:8000
-```
-
-### 2. Frontend Setup
-```bash
-cd frontend
-npm install
 npm run dev
-# Runs on http://localhost:3000
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### 3. Open in Browser
-- **Frontend**: http://localhost:3000
-- **API Docs**: http://localhost:8000/docs
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🏗️ Architecture
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```
-Frontend (Next.js + Tailwind CSS)
-        │
-        ▼
-FastAPI Backend (Python)
-        │
-        ├── Groq LLM (Intelligence Extraction, Q&A, Contradiction Detection)
-        │
-        └── SQLite Database (Hindsight Memory Storage)
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## ✨ Features
+## Learn More
 
-| Feature | Description |
-|---------|-------------|
-| 📄 **Document Upload** | Upload PDF, TXT, MD files for AI intelligence extraction |
-| 🌐 **URL Ingestion** | Paste any URL (Reuters, blogs, SEC) for instant analysis |
-| 💾 **Hindsight Memory** | Every insight is stored with evidence, assumptions, and confidence |
-| 📊 **Knowledge Timeline** | Watch how strategic understanding evolves over time |
-| ⚠️ **Contradiction Detection** | AI spots when new evidence contradicts old assumptions |
-| 💡 **Strategic Q&A** | Ask questions and get evidence-backed, explainable answers |
-| 🔍 **Evidence Explorer** | Browse all collected intelligence, memories, and contradictions |
+To learn more about Next.js, take a look at the following resources:
 
-## 🔐 Security
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- API key stored in `backend/.env` (never exposed to frontend)
-- `.gitignore` prevents committing secrets
-- Workspace isolation for data separation
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## 🧪 Example Questions
+## Deploy on Vercel
 
-- "How has Tesla evolved?"
-- "What assumptions changed?"
-- "What evidence supports this?"
-- "What trends are emerging?"
-- "What did we get wrong?"
-- "Why did our strategy shift?"
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

@@ -11,7 +11,9 @@ load_dotenv(env_path)
 
 class Settings:
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./insightflow.db")
+    # Database: supports SQLite (local) and PostgreSQL (Vercel/Render/Neon)
+    # For Vercel: set DATABASE_URL or it will use POSTGRES_URL from Vercel Postgres
+    DATABASE_URL: str = os.getenv("DATABASE_URL") or os.getenv("POSTGRES_URL") or "sqlite:///./insightflow.db"
     SECRET_KEY: str = os.getenv("SECRET_KEY", "default-dev-key")
     DEBUG: bool = os.getenv("DEBUG", "False").lower() == "true"
 
